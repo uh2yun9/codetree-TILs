@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void is_maginc_number(int n) 
+void is_magic_number(int n) 
 {
     int a = n / 10;
     int b = n % 10;
