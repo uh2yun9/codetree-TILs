@@ -8,6 +8,8 @@ void is_magic_number(int n)
     if (n % 2 == 0) {
         if ((a + b) % 5 == 0) {
             printf("Yes");
+        } else {
+            printf("No");
         }
     } else {
         printf("No");
