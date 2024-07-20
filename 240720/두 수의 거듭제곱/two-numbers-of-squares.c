@@ -2,11 +2,11 @@
 
 int square(int a, int b)
 {
-    int temp = a;
-    for (int i = 1; i < b; i++) {
-        a *= temp;
+    int temp = 1;
+    for (int i = 1; i <= b; i++) {
+        temp *= a;
     }
-    return a;
+    return temp;
 }
 
 int main() {
