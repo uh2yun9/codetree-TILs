@@ -1,23 +1,34 @@
 #include <stdio.h>
+#include <stdbool.h>
 
-int is_magic_number(int a, int b)
+bool Contains369(int n)
 {
-    int cnt = 0;
-    int num = 0;
-    for (num = a; num <= b; num++) {
-        if (num % 3 == 0) {
-            cnt++;
-        } else if (((num / 10) % 3 == 0) || (num % 10) % 3 == 0) {
-            cnt++;
+    while (n > 0) {
+        if (n % 10 == 3 || n % 10 == 6 || n % 10 == 9) {
+            return true;
         }
+        n /= 10;
     }
-    return cnt;
+    return false;
+}
+
+bool Is369Number(int n)
+{
+    return Contains369(n) || (n % 3 == 0);
 }
 
 int main() {
     // 여기에 코드를 작성해주세요.
     int a = 0, b = 0;
+    int cnt = 0;
     scanf("%d %d", &a, &b);
-    printf("%d", is_magic_number(a, b));
+
+    for (int i = a; i <= b; i++) {
+        if (Is369Number(i)) {
+            cnt++;
+        }
+    }
+    
+    printf("%d", cnt);
     return 0;
 }
