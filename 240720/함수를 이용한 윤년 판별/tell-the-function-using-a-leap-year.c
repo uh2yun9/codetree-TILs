@@ -4,10 +4,10 @@
 bool is_leap_year(int n)
 {
     if (n % 4 == 0) {
-        return true;
         if (n % 100 == 0 && n % 400 != 0) {
             return false;
         }
+        return true;
     } else {
         return false;
     }
