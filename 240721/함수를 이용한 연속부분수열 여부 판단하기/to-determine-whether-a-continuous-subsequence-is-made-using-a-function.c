@@ -1,22 +1,18 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int progression(int a[], int b[], int n1, int n2)
+int is_subsequence(int a[], int b[], int n1, int n2)
 {
-    int i = 0, j = 0;
-
-    while (j != n2) {
-        if (b[j] != a[i]) {
-            i++;
-        } else {
-            i++;
+    for (int i = 0; i <= n1 - n2; i++) {
+        int j = 0;
+        while (j < n2 && a[i + j] == b[j]) {
             j++;
         }
-        if (i == n1) {
-            return 0;
+        if (j == n2) {
+            return 1;
         }
     }
-    return 1;
+    return 0;
 }
 
 int main() {
@@ -25,10 +21,21 @@ int main() {
     scanf("%d %d", &n1, &n2);
     int *a = (int*)malloc(sizeof(int) * n1);
     int *b = (int*)malloc(sizeof(int) * n2);
-    if (progression(a, b, n1, n2) == 1) {
+    
+    for (int i = 0; i < n1; i++) {
+        scanf("%d", &a[i]);
+    }
+    for (int i = 0; i < n2; i++) {
+        scanf("%d", &b[i]);
+    }
+
+    if (is_subsequence(a, b, n1, n2)) {
         printf("Yes");
     } else {
         printf("No");
     }
+
+    free(a);
+    free(b);
     return 0;
 }
