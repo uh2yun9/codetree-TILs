@@ -6,7 +6,7 @@ int exist_date(int m, int d)
         return 0;
     }
 
-    if (m == 4 || m == 6 || m || 9 || m == 11) {
+    if (m == 4 || m == 6 || m == 9 || m == 11) {
         if (d < 1 || d > 30) {
             return 0;
         }
