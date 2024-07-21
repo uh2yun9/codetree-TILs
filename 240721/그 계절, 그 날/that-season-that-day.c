@@ -18,11 +18,17 @@ int exist_date(int y, int m, int d)
     if (y > 3000) {
         return 0;
     }
-    
-    if (is_leap_year(y) == 1) { // 윤년일 경우
+
+    if (is_leap_year(y)) { // 윤년일 경우
         if (m == 2) {
             if (d < 1 || d > 29) {
             return 0;
+            }
+        }
+    } else { // 윤년이 아닌 경우
+        if (m == 2) {
+            if (d < 1 || d > 28) {
+                return 0;
             }
         }
     }
