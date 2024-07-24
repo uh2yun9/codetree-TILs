@@ -1,18 +1,31 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdbool.h>
 
-int string_check(const char *input, const char *purpose) {
-    int input_len = strlen(input);
-    int purpose_len = strlen(purpose);
+char text[1000], pattern[1000];
 
-    for (int i = 0; i <= input_len - purpose_len; i++) {
-        int j;
-        for (j = 0; j < purpose_len; j++) {
-            if (input[i + j] != purpose[j]) {
-                break;
-            }
+bool IsSubStr(int start_idx)
+{
+    int n = (int)strlen(text);
+    int m = (int)strlen(pattern);
+
+    if (start_idx + m - 1 >= n) {
+        return false;
+    }
+
+    for (int j = 0; j < m; j++) {
+        if (text[start_idx + j] != pattern[j]) {
+            return false;
         }
-        if (j == purpose_len) {
+    }
+    return true;
+}
+
+int FindIndex()
+{
+    int n = (int)strlen(text);
+    for (int i = 0; i < n; i++) {
+        if (IsSubStr(i)) {
             return i;
         }
     }
@@ -21,20 +34,8 @@ int string_check(const char *input, const char *purpose) {
 
 int main() {
     // 여기에 코드를 작성해주세요.
-    char input[10000];
-    char purpose[10000];
-
-    fgets(input, sizeof(input), stdin);
-    input[strcspn(input, "\n")] = '\0'; // 개행 문자 제거
-
-    fgets(purpose, sizeof(purpose), stdin);
-    purpose[strcspn(purpose, "\n")] = '\0'; // 개행 문자 제거
-
-    int result = string_check(input, purpose);
-    if (result != -1) {
-        printf("%d", result);
-    } else {
-        printf("%d", -1);
-    }
+    scanf("%s", text);
+    scanf("%s", pattern);
+    printf("%d", FindIndex());
     return 0;
 }
