@@ -21,8 +21,8 @@ int string_check(const char *input, const char *purpose) {
 
 int main() {
     // 여기에 코드를 작성해주세요.
-    char input[100];
-    char purpose[100];
+    char input[1000];
+    char purpose[1000];
 
     fgets(input, sizeof(input), stdin);
     input[strcspn(input, "\n")] = '\0'; // 개행 문자 제거
