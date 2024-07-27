@@ -32,8 +32,8 @@ void compareString(char a[], char b[])
 
 int main() {
     // 여기에 코드를 작성해주세요.
-    char sa[100];
-    char sb[100];
+    char sa[10000];
+    char sb[10000];
     scanf("%s", sa);
     scanf("%s", sb);
     
